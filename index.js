@@ -14,7 +14,7 @@ function installPMD() {
   var mk = "mkdir $HOME/pmd";
   var mv = "mv /tmp/pmd-bin-6.19.0/* $HOME/pmd";
   exec(
-    "sudo apt-get install unzip && " +
+    "apt update && apt install sudo && sudo apt-get install unzip && " +
       download +
       " && " +
       unzip +
