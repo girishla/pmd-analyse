@@ -13,14 +13,14 @@ function installPMD() {
   var unzip = "unzip /tmp/pmd-bin-6.19.0.zip -d /tmp";
   var mk = "mkdir $HOME/pmd";
   var mv = "mv /tmp/pmd-bin-6.19.0/* $HOME/pmd";
-  exec(download + " && " + unzip + " && " + mk + " && " + mv, function (
-    error,
-    stdout,
-    stderr
-  ) {
-    if (error) core.setFailed(stderr);
-    referencePMD();
-  });
+  exec(
+    "sudo apt-get install unzip" &&
+      download + " && " + unzip + " && " + mk + " && " + mv,
+    function (error, stdout, stderr) {
+      if (error) core.setFailed(stderr);
+      referencePMD();
+    }
+  );
 }
 
 function referencePMD() {
